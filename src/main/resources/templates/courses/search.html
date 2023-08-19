@@ -15,6 +15,9 @@
 <div class="page-header mb-0">
     <div class="px-4 px-lg-0">
         <div class="pb-5">
+            <div class="col-12">
+                <a href="/">Home</a>
+            </div>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
@@ -31,29 +34,24 @@
                                     </thead>
 
                                     <tbody class="order-items" th:object="${courses}">
-                                    <th:block th:each=" s: ${courses}">
+                                    <select class="custom-select form-control" name="id"
+                                            style="background:#FBAF32">
+                                        <option th:each=" s: ${courses}" th:value="${s.id}"
+                                                th:text="${s.courseType}"></option>
+                                    </select>
 
-                                        <select class="custom-select form-control" name="id"
-                                                style="background:#FBAF32">
-                                            <option  th:value="${s.id}" th:text="${s.courseType}"></option>
-<!--                                            <option value="2">SECONDARY</option>-->
-                                        </select>
+                                    <h5>Student age</h5>
 
-                                        <h5>Student age</h5>
-
-                                        <input type="number" id="myNumber" name="age"
-                                               th:value="${s.age}">
-                                        <td class="border-0 align-middle">
-                                            <br><br>
-                                            <div class="button-holder">
-                                                <button type="submit"
-                                                   class="btn btn-danger">Search by selected course and student
-                                                    older than this age</button>
-                                            </div>
-                                        </td>
-
-                                    </th:block>
-
+                                    <input type="number" id="myNumber" name="age">
+                                    <td class="border-0 align-middle">
+                                        <br><br>
+                                        <div class="button-holder">
+                                            <button type="submit"
+                                                    class="btn btn-danger">Search by selected course and student
+                                                older than this age
+                                            </button>
+                                        </div>
+                                    </td>
 
                                     </th:block>
                                     </tbody>
